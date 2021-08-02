@@ -13,5 +13,4 @@ class MainViewModel @Inject constructor(
 ) : ViewModel() {
     var listState: Parcelable? = null
     val users = repository.getUsers().asLiveData()
-
 }

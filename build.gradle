@@ -16,7 +16,7 @@ buildscript {
         circleimageview_version = '3.0.0'
 
         junit_version = '4.12'
-        mockito_version = '2.27.0'
+        mockito_version = '2.13.3'
         mockito_kotlin_version = '2.1.0'
 
         test_runner_version = '1.1.1'

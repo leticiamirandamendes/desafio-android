@@ -13,6 +13,12 @@ interface UserDao {
     @Query("SELECT * FROM user")
     fun getAllUsers(): Flow<List<User>>
 
+    @Query("SELECT * FROM user WHERE id = :id")
+    fun findUserById(id: Long): User
+
+    @Insert
+    fun insertUser(user: User)
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertUsers(users: List<User>)
 

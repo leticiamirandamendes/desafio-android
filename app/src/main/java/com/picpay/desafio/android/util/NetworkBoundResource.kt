@@ -1,6 +1,5 @@
-package com.picpay.desafio.android.api
+package com.picpay.desafio.android.util
 
-import com.picpay.desafio.android.util.Resource
 import kotlinx.coroutines.flow.*
 
 inline fun <ResultType, RequestType> networkBoundResource(
