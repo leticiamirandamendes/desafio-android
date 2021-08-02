@@ -1,28 +1,17 @@
 package com.picpay.desafio.android.ui
 
-import androidx.lifecycle.*
-import com.picpay.desafio.android.api.PicPayService
-import com.picpay.desafio.android.data.AppDatabase
-import com.picpay.desafio.android.model.User
-import kotlinx.coroutines.*
+import android.os.Parcelable
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
+import com.picpay.desafio.android.data.UserRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class MainViewModel : ViewModel(){
-
-    private val service = PicPayService()
-    private val _users = MutableLiveData<List<User>>()
-
-    val users: LiveData<List<User>>
-        get() = _users
-
-    fun fetchUsers(){
-        viewModelScope.launch(Dispatchers.IO){
-            val res = service.getUsers()
-            if(res.isSuccessful){
-                withContext(Dispatchers.Main){
-                    _users.value = res.body()
-                }
-            }
-        }
-    }
+@HiltViewModel
+class MainViewModel @Inject constructor(
+    repository: UserRepository
+) : ViewModel() {
+    var listState: Parcelable? = null
+    val users = repository.getUsers().asLiveData()
 
 }

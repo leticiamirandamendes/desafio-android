@@ -2,5 +2,6 @@
     <string name="app_name">PicPay</string>
     <string name="title">Contatos</string>
     <string name="error">Ocorreu um erro. Tente novamente.</string>
+    <string name="error_message">Ocorreu um erro ao buscar a lista de usuários.</string>
 
 </resources>

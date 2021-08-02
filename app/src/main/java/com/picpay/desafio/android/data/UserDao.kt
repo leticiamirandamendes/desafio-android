@@ -5,12 +5,13 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.picpay.desafio.android.model.User
+import kotlinx.coroutines.flow.Flow
 
 @Dao
-interface UserDAO {
+interface UserDao {
 
     @Query("SELECT * FROM user")
-    fun getAll(): List<User>
+    fun getAllUsers(): Flow<List<User>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertUsers(users: List<User>)

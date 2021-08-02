@@ -6,7 +6,11 @@ import retrofit2.http.GET
 
 interface UsersApi {
 
+    companion object {
+        const val BASE_URL = "https://609a908e0f5a13001721b74e.mockapi.io/picpay/api/"
+    }
+
     @GET("users")
-    suspend fun getUsers(): Response<List<User>>
+    suspend fun getUsers(): List<User>
 
 }
